@@ -7,7 +7,7 @@ public class DataStructuresMain {
 		linkedList.append(new Node(30));
 		linkedList.append(new Node(70));
 		
-		linkedList.pop();
+		linkedList.popLast();
 		
 		linkedList.printList();
 	}
