@@ -9,5 +9,11 @@ public class Queue<T> {
 	
 	public void enQueue(T data) {
 		list.append(new Node<T>(data));
+		list.printList();
+	}
+	
+	public void deQueue() {
+		list.pop();
+		list.printList();
 	}
 }
