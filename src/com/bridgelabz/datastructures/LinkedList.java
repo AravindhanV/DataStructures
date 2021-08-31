@@ -13,9 +13,18 @@ public class LinkedList<T> {
 		if(head == null) {
 			head = node;
 			tail = node;
+		} else {
+			node.setNext(head);
+			head = node;
 		}
-		
-		node.setNext(head);
-		head = node;
+	}
+	
+	public void printList() {
+		Node<T> temp = head;
+		while(temp != null) {
+			System.out.print(temp.getData().toString()+" ");
+			temp = temp.getNext();
+		}
+		System.out.println();
 	}
 }
