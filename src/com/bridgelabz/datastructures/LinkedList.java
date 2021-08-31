@@ -21,7 +21,7 @@ public class LinkedList<T> {
 
 	public void add(Node<T> node, T key) {
 		Node keyNode = search(key);
-		if(keyNode == null) {
+		if (keyNode == null) {
 			return;
 		}
 		if (tail.equals(keyNode)) {
@@ -30,7 +30,7 @@ public class LinkedList<T> {
 		node.setNext(keyNode.getNext());
 		keyNode.setNext(node);
 	}
-	
+
 	public Node<T> search(T key) {
 		Node<T> temp = head;
 		while (temp != null && !temp.getData().equals(key)) {
@@ -83,5 +83,15 @@ public class LinkedList<T> {
 			tail = temp;
 			temp.setNext(null);
 		}
+	}
+
+	public int size() {
+		int length = 0;
+		Node temp = head;
+		while (temp != null) {
+			temp = temp.getNext();
+			length++;
+		}
+		return length;
 	}
 }
