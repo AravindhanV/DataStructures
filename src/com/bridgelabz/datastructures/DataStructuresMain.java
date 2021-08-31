@@ -7,8 +7,9 @@ public class DataStructuresMain {
 		linkedList.append(new Node(30));
 		linkedList.append(new Node(70));
 		
-		linkedList.popLast();
-		
-		linkedList.printList();
+		Node<Integer> result = linkedList.search(30);
+		if(result!=null) {
+			System.out.println("Key Found");	
+		}
 	}
 }
