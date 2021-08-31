@@ -1,10 +1,10 @@
 package com.bridgelabz.datastructures;
 
-public class LinkedList<T> {
+public class SortedLinkedList<T extends Comparable<T>> {
 	Node<T> head;
 	Node<T> tail;
 
-	public LinkedList() {
+	public SortedLinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
@@ -13,22 +13,22 @@ public class LinkedList<T> {
 		if (head == null) {
 			head = node;
 			tail = node;
+		} else if (head == tail) {
+			if (head.compareTo(node) > 0) {
+				node.setNext(head);
+				head = node;
+			} else {
+				head.setNext(node);
+				tail = node;
+			}
 		} else {
-			node.setNext(head);
-			head = node;
+			Node<T> temp = head;
+			while (temp.getNext() != null && temp.getNext().compareTo(node) < 0) {
+				temp = temp.getNext();
+			}
+			node.setNext(temp.getNext());
+			temp.setNext(node);
 		}
-	}
-
-	public void add(Node<T> node, T key) {
-		Node keyNode = search(key);
-		if (keyNode == null) {
-			return;
-		}
-		if (tail.equals(keyNode)) {
-			tail = node;
-		}
-		node.setNext(keyNode.getNext());
-		keyNode.setNext(node);
 	}
 
 	public Node<T> search(T key) {
@@ -40,16 +40,6 @@ public class LinkedList<T> {
 			System.err.println("Cannot find " + key);
 		}
 		return temp;
-	}
-
-	public void append(Node<T> node) {
-		if (head == null) {
-			head = node;
-			tail = node;
-		} else {
-			tail.setNext(node);
-			tail = node;
-		}
 	}
 
 	public void printList() {
@@ -84,22 +74,22 @@ public class LinkedList<T> {
 			temp.setNext(null);
 		}
 	}
-	
+
 	public void deleteNode(T key) {
 		Node<T> keyNode = search(key);
-		if(keyNode == null) {
+		if (keyNode == null) {
 			return;
 		}
-		if(head==keyNode) {
-			head=null;
-			tail=null;
+		if (head == keyNode) {
+			head = null;
+			tail = null;
 		} else {
 			Node<T> temp = head;
-			while(temp.getNext()!= keyNode) {
+			while (temp.getNext() != keyNode) {
 				temp = temp.getNext();
 			}
 			temp.setNext(keyNode.getNext());
-			if(keyNode == tail) {
+			if (keyNode == tail) {
 				tail = temp;
 			}
 		}
