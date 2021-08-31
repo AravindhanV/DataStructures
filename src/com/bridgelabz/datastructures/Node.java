@@ -9,6 +9,14 @@ public class Node<T> {
 		this.next = null;
 	}
 	
+	public T getData() {
+		return this.data;
+	}
+	
+	public void setData(T data) {
+		this.data = data;
+	}
+	
 	public void setNext(Node<T> next) {
 		this.next = next;
 	}
