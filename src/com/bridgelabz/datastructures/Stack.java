@@ -10,4 +10,12 @@ public class Stack<T> {
 	public void push(T data) {
 		list.add(new Node<T>(data));
 	}
+	
+	public T peek() {
+		return list.getHead().getData();
+	}
+	
+	public void pop() {
+		list.pop();
+	}
 }
