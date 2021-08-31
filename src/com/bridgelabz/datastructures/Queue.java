@@ -6,4 +6,8 @@ public class Queue<T> {
 	public Queue() {
 		this.list = new LinkedList();
 	}
+	
+	public void enQueue(T data) {
+		list.append(new Node<T>(data));
+	}
 }
