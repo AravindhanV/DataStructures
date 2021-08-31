@@ -19,6 +19,22 @@ public class LinkedList<T> {
 		}
 	}
 	
+	public void add(Node<T> node, T key) {
+		 Node<T> temp = head;
+		 while(temp != null && !temp.getData().equals(key)) {
+			 temp = temp.getNext();
+		 }
+		 if(temp == null) {
+			 System.err.println("Cannot find "+key);
+			 return;
+		 }
+		 if(tail.equals(temp)) {
+			 tail = node;
+		 }
+		 node.setNext(temp.getNext());
+		 temp.setNext(node);
+	}
+	
 	public void append(Node<T> node) {
 		if(head==null) {
 			head = node;
