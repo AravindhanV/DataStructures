@@ -1,15 +1,15 @@
 package com.bridgelabz.datastructures;
 
 public class LinkedList<T> {
-	Node<T> head;
-	Node<T> tail;
+	NodeIF<T> head;
+	NodeIF<T> tail;
 
 	public LinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
 
-	public void add(Node<T> node) {
+	public void add(NodeIF<T> node) {
 		if (head == null) {
 			head = node;
 			tail = node;
@@ -19,8 +19,8 @@ public class LinkedList<T> {
 		}
 	}
 
-	public void add(Node<T> node, T key) {
-		Node keyNode = search(key);
+	public void add(NodeIF<T> node, T key) {
+		NodeIF keyNode = search(key);
 		if (keyNode == null) {
 			return;
 		}
@@ -31,13 +31,13 @@ public class LinkedList<T> {
 		keyNode.setNext(node);
 	}
 	
-	public Node<T> getHead() {
+	public NodeIF<T> getHead() {
 		return head;
 	}
 
-	public Node<T> search(T key) {
-		Node<T> temp = head;
-		while (temp != null && !temp.getData().equals(key)) {
+	public NodeIF<T> search(T key) {
+		NodeIF<T> temp = head;
+		while (temp != null && !temp.getKey().equals(key)) {
 			temp = temp.getNext();
 		}
 		if (temp == null) {
@@ -46,7 +46,7 @@ public class LinkedList<T> {
 		return temp;
 	}
 
-	public void append(Node<T> node) {
+	public void append(NodeIF<T> node) {
 		if (head == null) {
 			head = node;
 			tail = node;
@@ -57,9 +57,9 @@ public class LinkedList<T> {
 	}
 
 	public void printList() {
-		Node<T> temp = head;
+		NodeIF<T> temp = head;
 		while (temp != null) {
-			System.out.print(temp.getData().toString() + " ");
+			System.out.print(temp.getKey().toString() + " ");
 			temp = temp.getNext();
 		}
 		System.out.println();
@@ -80,7 +80,7 @@ public class LinkedList<T> {
 		} else if (head == tail) {
 			head = tail = null;
 		} else {
-			Node<T> temp = head;
+			NodeIF<T> temp = head;
 			while (temp.getNext() != tail) {
 				temp = temp.getNext();
 			}
@@ -90,7 +90,7 @@ public class LinkedList<T> {
 	}
 	
 	public void deleteNode(T key) {
-		Node<T> keyNode = search(key);
+		NodeIF<T> keyNode = search(key);
 		if(keyNode == null) {
 			return;
 		}
@@ -98,7 +98,7 @@ public class LinkedList<T> {
 			head=null;
 			tail=null;
 		} else {
-			Node<T> temp = head;
+			NodeIF<T> temp = head;
 			while(temp.getNext()!= keyNode) {
 				temp = temp.getNext();
 			}
@@ -111,7 +111,7 @@ public class LinkedList<T> {
 
 	public int size() {
 		int length = 0;
-		Node temp = head;
+		NodeIF<T> temp = head;
 		while (temp != null) {
 			temp = temp.getNext();
 			length++;

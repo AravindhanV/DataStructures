@@ -12,7 +12,7 @@ public class Stack<T> {
 	}
 	
 	public T peek() {
-		return list.getHead().getData();
+		return list.getHead().getKey();
 	}
 	
 	public void pop() {
