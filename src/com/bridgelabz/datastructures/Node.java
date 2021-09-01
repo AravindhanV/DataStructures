@@ -1,8 +1,8 @@
 package com.bridgelabz.datastructures;
 
-public class Node<T> {
+public class Node<T> implements NodeIF<T>{
 	private T data;
-	private Node<T> next;
+	private NodeIF<T> next;
 	
 	public Node(T data) {
 		this.data = data;
@@ -17,11 +17,11 @@ public class Node<T> {
 		this.data = data;
 	}
 	
-	public void setNext(Node<T> next) {
+	public void setNext(NodeIF<T> next) {
 		this.next = next;
 	}
 	
-	public Node getNext() {
+	public NodeIF getNext() {
 		return this.next;
 	}
 }
