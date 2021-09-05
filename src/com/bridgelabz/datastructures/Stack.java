@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructures;
 
-public class Stack<T> {
+public class Stack<T extends Comparable<T>> {
 	LinkedList<T> list;
 	
 	public Stack() {
@@ -15,7 +15,15 @@ public class Stack<T> {
 		return list.getHead().getKey();
 	}
 	
-	public void pop() {
+	public int pop() {
+		if(list.size()==0) {
+			return -1;
+		}
 		list.pop();
+		return 0;
+	}
+	
+	public boolean isEmpty() {
+		return list.size()==0;
 	}
 }

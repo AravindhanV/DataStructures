@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructures;
 
-public class Queue<T> {
+public class Queue<T extends Comparable<T>> {
 	LinkedList<T> list;
 
 	public Queue() {
@@ -9,11 +9,9 @@ public class Queue<T> {
 	
 	public void enQueue(T data) {
 		list.append(new Node<T>(data));
-		list.printList();
 	}
 	
-	public void deQueue() {
-		list.pop();
-		list.printList();
+	public T deQueue() {
+		return list.pop();
 	}
 }

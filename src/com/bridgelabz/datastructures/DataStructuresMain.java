@@ -2,20 +2,12 @@ package com.bridgelabz.datastructures;
 
 public class DataStructuresMain {
 	public static void main(String[] args) {
-		String sentence = "To be or not to be";
-		HashMap<String, Integer> hashMap = new HashMap();
-		String[] words = sentence.toLowerCase().split(" ");
-		for(String word : words) {
-			Integer value = hashMap.get(word);
-			if(value == null) {
-				value = 1;
-			}
-			else {
-				value += 1;
-			}
-			hashMap.add(word, value);
-		}
-		int frequency = hashMap.get("to");
+		SortedLinkedList linkedList = new SortedLinkedList<>();
+		linkedList.add(new Node(47));
+		linkedList.add(new Node(37));
+		linkedList.add(new Node(24));
+		linkedList.add(new Node(26));
 		
+		linkedList.printList();
 	}
 }
